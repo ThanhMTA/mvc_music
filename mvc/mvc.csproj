@@ -1,0 +1,723 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D0F5F39-829B-41F6-AFF2-55EC2A5A2008}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>mvc</RootNamespace>
+    <AssemblyName>mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44354</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assests_mp3_catena.mp3" />
+    <Content Include="assests_mp3_edcnm.mp3" />
+    <Content Include="assests_mp3_ntt.mp3" />
+    <Content Include="assests_mp3_ttbdty.mp3" />
+    <Content Include="assests_mp3_vdcc.mp3" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Giao diện giới thiệu\ass\StyleSliderAlbum.css" />
+    <Content Include="Giao diện giới thiệu\css\Albums.css" />
+    <Content Include="Giao diện giới thiệu\css\Artist.css" />
+    <Content Include="Giao diện giới thiệu\css\calendar.css" />
+    <Content Include="Giao diện giới thiệu\css\event.css" />
+    <Content Include="Giao diện giới thiệu\css\extraStyle.css" />
+    <Content Include="Giao diện giới thiệu\css\favoriteSong.css" />
+    <Content Include="Giao diện giới thiệu\css\main.css" />
+    <Content Include="Giao diện giới thiệu\css\new.css" />
+    <Content Include="Giao diện giới thiệu\css\responsiveMain.css" />
+    <Content Include="Giao diện giới thiệu\css\StyleArtistNews.css" />
+    <Content Include="Giao diện giới thiệu\css\styleHeader.css" />
+    <Content Include="Giao diện giới thiệu\css\StyleInfoFooter.css" />
+    <Content Include="Giao diện giới thiệu\css\styleMain.css" />
+    <Content Include="Giao diện giới thiệu\css\StyleSliderAlbum.css" />
+    <Content Include="Giao diện giới thiệu\javaScript\main.js" />
+    <Content Include="Giao diện giới thiệu\slider2.jpg" />
+    <Content Include="Giao diện giới thiệu\slider3.jpg" />
+    <Content Include="Giao diện giới thiệu\slider4.jpg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\demo-files\demo.css" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\fonts\themify.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\ie7\ie7.css" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\ie7\ie7.js" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\index.html" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\readme.txt" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\agenda.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\alarm-clock.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\alert.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\align-center.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\align-justify.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\align-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\align-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\anchor.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\android.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\angle-double-down.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\angle-double-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\angle-double-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\angle-double-up.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\angle-down.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\angle-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\angle-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\angle-up.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\announcement.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\apple.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\archive.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-circle-down.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-circle-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-circle-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-circle-up.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-down.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-top-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-top-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow-up.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrow.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrows-corner.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrows-horizontal.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\arrows-vertical.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\back-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\back-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\bag.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\bar-chart-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\bar-chart.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\basketball.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\bell.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\blackboard.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\bolt-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\bolt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\book.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\bookmark-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\bookmark.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\briefcase.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\brush-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\brush.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\calendar.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\camera.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\car.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\check-box.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\check.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\clip.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\clipboard.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\close.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\cloud-down.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\cloud-up.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\cloud.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\comment-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\comment.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\comments-smiley.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\comments.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-backward.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-eject.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-forward.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-pause.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-play.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-record.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-shuffle.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-skip-backward.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-skip-forward.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\control-stop.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\credit-card.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\crown.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\css3.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\cup.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\cut.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\dashboard.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\desktop.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\direction-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\direction.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\download.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\dribbble.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\dropbox-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\dropbox.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\drupal.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\email.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\envelope.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\eraser.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\exchange-vertical.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\export.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\eye.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\face-sad.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\face-smile.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\facebook.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\file.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\files.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\filter.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\flag-alt-2.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\flag-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\flag.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\flickr-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\flickr.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\folder.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\fullscreen.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\gallery.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\game.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\gift.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\github.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\google.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\hand-drag.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\hand-open.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\hand-point-down.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\hand-point-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\hand-point-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\hand-point-up.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\hand-stop.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\harddrive.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\harddrives.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\headphone-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\headphone.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\heart-broken.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\heart.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\help-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\help.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\home.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\html5.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\hummer.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\id-badge.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\image.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\import.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\infinite.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\info-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\info.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\ink-pen.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\instagram.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\Italic.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\joomla.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\jsfiddle.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\key.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layers-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layers.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-accordion-list.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-accordion-merged.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-accordion-separated.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-column2-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-column2.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-column3-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-column3.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-column4-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-column4.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-cta-btn-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-cta-btn-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-cta-center.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-cta-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-cta-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-grid2-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-grid2-thumb.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-grid2.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-grid3-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-grid3.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-grid4-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-grid4.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-line-solid.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-list-large-image.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-list-post.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-list-thumb-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-list-thumb.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-media-center-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-media-center.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-media-left-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-media-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-media-overlay-alt-2.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-media-overlay-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-media-overlay.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-media-right-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-media-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-menu-full.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-menu-separated.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-menu-v.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-menu.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-placeholder.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-sidebar-2.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-sidebar-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-sidebar-none.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-sidebar-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-slider-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-slider.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-tab-min.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-tab-v.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-tab-window.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-tab.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-width-default-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-width-default.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout-width-full.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\layout.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\light-bulb.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\line-dashed.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\line-dotted.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\line-double.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\link.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\linkedin.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\linux.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\list-ol.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\list.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\location-arrow.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\location-pin.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\lock.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\loop.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\magnet.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\map-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\map.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\marker-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\marker.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\medall-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\medall.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\menu-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\menu.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\microphone-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\microphone.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\microsoft-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\microsoft.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\minus.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\mobile.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\money.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\more-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\more.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\mouse-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\mouse.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\music-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\music.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\na.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\new-window.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\notepad.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\package.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\paint-bucket.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\paint-roller.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\palette.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\panel.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\paragraph.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pencil-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pencil-alt2.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pencil.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pie-chart.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pin-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pin.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pin2.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pinterest-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pinterest.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\plug.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\plus.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\power-off.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\printer.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\pulse.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\quote-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\quote-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\receipt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\reddit.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\reload.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\rocket.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\rss-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\rss.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\ruler-alt-2.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\ruler-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\ruler-pencil.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\ruler.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\save-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\save.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\search.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\server.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\settings.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\share-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\share.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\sharethis-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\sharethis.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\shield.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\shift-left-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\shift-left.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\shift-right-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\shift-right.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\shine.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\shopping-cart-full.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\shopping-cart.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\shortcode.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\signal.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\skype.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\slice.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\smallcap.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\soundcloud.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\split-h.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\split-v-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\split-v.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\spray.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\stack-overflow.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\stamp.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\star.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\stats-down.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\stats-up.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\support.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\tablet.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\tag.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\target.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\text.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\themify-favicon-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\themify-favicon.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\themify-logo.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\thought.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\thumb-down.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\thumb-up.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\ticket.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\time.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\timer.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\trash.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\trello.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\truck.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\tumblr-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\tumblr.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\twitter-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\twitter.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\underline.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\unlink.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\unlock.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\upload.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\uppercase.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\user.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\vector.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\video-camera.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\video-clapper.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\view-grid.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\view-list-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\view-list.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\vimeo-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\vimeo.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\volume.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\wallet.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\wand.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\wheelchair.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\widget-alt.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\widget.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\widgetized.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\window.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\wordpress.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\world.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\write.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\yahoo.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\youtube.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\zip.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\zoom-in.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\SVG\zoom-out.svg" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\themify-icons.css" />
+    <Content Include="Giới thiệu\album\Adele_21.jpg" />
+    <Content Include="Giới thiệu\album\BTS_-_Be_Cover.png" />
+    <Content Include="Giới thiệu\album\chung ta.jpg" />
+    <Content Include="Giới thiệu\album\depacito.jpg" />
+    <Content Include="Giới thiệu\album\kill thí love.jpg" />
+    <Content Include="Giới thiệu\album\see you again.jpg" />
+    <Content Include="Giới thiệu\Artist\charlie-01.png" />
+    <Content Include="Giới thiệu\Artist\download.jpg" />
+    <Content Include="Giới thiệu\Artist\taylor switf.png" />
+    <Content Include="Giới thiệu\Artist\tóc-tiên.jpg" />
+    <Content Include="Giới thiệu\event\CHLBB-close-up-smoke-scaled.jpg" />
+    <Content Include="Giới thiệu\event\Classical-scaled.jpg" />
+    <Content Include="Giới thiệu\event\dj.jpg" />
+    <Content Include="Giới thiệu\event\event.jpg" />
+    <Content Include="Giới thiệu\event\Jazz-Swing.jpg" />
+    <Content Include="Giới thiệu\event\LED-Dancefloor2.jpg" />
+    <Content Include="Giới thiệu\event\party.jpg" />
+    <Content Include="Giới thiệu\event\Trio-Vivo-scaled.jpg" />
+    <Content Include="Giới thiệu\event\wedding.jpg" />
+    <Content Include="Giới thiệu\imgMain\banner.jpg" />
+    <Content Include="Giới thiệu\imgMain\fire.png" />
+    <Content Include="Giới thiệu\imgMain\ghitar.png" />
+    <Content Include="Giới thiệu\imgMain\imgCal\alex.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\ato.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\big.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\bompink.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\clades.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\darko.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\djo.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\elusin.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\icarus.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\jenifer.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\lek.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\louzie.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\marldn.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\nav.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\preservation.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\quadeca.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\sudan.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\thebeth.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\thewar.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\tot.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\weezer.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\weyes.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\wuntwo.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\xiumin.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\yeat.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgCal\yung.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\1.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\10.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\2.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\3.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\4.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\5.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\6.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\7.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\8.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgFeed\9.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\2022_billieeilish_youtube_2000x1270-696x442.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\2022_diplo_getty_2000x1270-696x442.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\2022_JessieReyez_ScottDudelson_Getty_2000x1270-696x442.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\ArcticMonkeys-Fallon-announce-696x442.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\bts-dynamite-conceptphoto-2020-696x442.jpeg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\Frank-Iero-Gerard-Way-and-Mikey-Way-of-My-Chemical-Romance.-Credit-David-Wolff-PatrickRedferns-696x442.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\ghost%402000x1270-696x442.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\Maynard-James-Keenan-pucifer-2000x1270-1-696x442.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want1.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want10.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want2.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want3.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want4.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want5.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want6.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want7.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want8.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\want9.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgNotable\Weezer-2000-x-1270-696x442.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\beggers.png" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\empire.png" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\FUGA.png" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\Kakao-M.png" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\monstercat.png" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\orcahrd.png" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\SM-Entertainment.png" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\sony.png" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\universal-1.png" />
+    <Content Include="Giới thiệu\imgMain\imgPartner\User.png" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\1663750379706_org.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\1663751155543_org.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\1663751593436_org.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\Drake Laptop Wallpapers - Wallpaper Cave.png" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\Fresh From The Dairy_ Music.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\International Artist Feature_ Peru.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\music-2021-08-26-23-57-09-utc-scaled.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\pngtree-purple-minimalist-music-note-banner-background-image_233650.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\Pólóminták %2819 kép%29.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\RAP Songs with a catchy beats %28Kanye West, A%24ap Rocky, and more%29.jpg" />
+    <Content Include="Giới thiệu\imgMain\imgtrend\Songs for a Rainy Day.jpg" />
+    <Content Include="Giới thiệu\imgMain\jazz.png" />
+    <Content Include="Giới thiệu\imgMain\min.jpg" />
+    <Content Include="Giới thiệu\imgMain\ngô-lan-hương.jpg" />
+    <Content Include="Giới thiệu\imgMain\piano.png" />
+    <Content Include="Giới thiệu\imgMain\snow.png" />
+    <Content Include="Giới thiệu\imgMain\star.png" />
+    <Content Include="Giới thiệu\imgMain\tiên-tiên.jpg" />
+    <Content Include="Giới thiệu\imgMain\tóc-tiên.jpg" />
+    <Content Include="Giới thiệu\Mẫu-01.png" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\charlie-01.png" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\images %281%29.jpg" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\images.jpg" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\IU-01.png" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\iu.jpg" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\justin-01.png" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\Justin_Bieber.jpg" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\mtp-01.png" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\rihanna-01.png" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\Rihanna.png" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\Son_Tung_M-TP.png" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\taylor switf.png" />
+    <Content Include="Giới thiệu\nghệ sĩ yêu thích\unnamed.jpg" />
+    <Content Include="Giới thiệu\nền\8.jpg" />
+    <Content Include="Giới thiệu\nền\Hướng dẫn slider.txt" />
+    <Content Include="Giới thiệu\nền\nền-01.png" />
+    <Content Include="Giới thiệu\nền\slider2.jpg" />
+    <Content Include="Giới thiệu\nền\slider3.jpg" />
+    <Content Include="Giới thiệu\nền\slider4.jpg" />
+    <Content Include="Giới thiệu\nền\Untitled-2-01.png" />
+    <Content Include="Giới thiệu\tin mới\Untitled-4-01.png" />
+    <Content Include="Giới thiệu\tin mới\Untitled-5-01.png" />
+    <Content Include="Giới thiệu\đăng nhập và đăng kí\mẫu đăng ký.png" />
+    <Content Include="Giới thiệu\đăng nhập và đăng kí\mẫu đăng nhập %281%29.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlbumController.cs" />
+    <Compile Include="Controllers\ArtistController.cs" />
+    <Compile Include="Controllers\CalenderController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\FavoriteSongController.cs" />
+    <Compile Include="Controllers\FeedController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewNotableController.cs" />
+    <Compile Include="Controllers\TrendController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ADMIN.cs" />
+    <Compile Include="Models\ALbum.cs" />
+    <Compile Include="Models\DS_SP.cs" />
+    <Compile Include="Models\KHACH_HANG.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\NGHE.cs" />
+    <Compile Include="Models\NGHE_SI.cs" />
+    <Compile Include="Models\SAN_PHAM.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\THEO_DOI.cs" />
+    <Compile Include="Models\TIN_MOI.cs" />
+    <Compile Include="Models\TRINH_BAY.cs" />
+    <Compile Include="Models\TRUY_CAP_TM.cs" />
+    <Compile Include="Models\YEU_THICH.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\fonts\themify.eot" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\fonts\themify.ttf" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\fonts\themify.woff" />
+    <Content Include="Giao diện giới thiệu\themify-icons-font\themify-icons\Themify IconFonts 5-23-2014.json" />
+    <Content Include="Giới thiệu\login.ai" />
+    <Content Include="Giới thiệu\signIn.ai" />
+    <Content Include="Giới thiệu\web-design.ai" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Main.cshtml" />
+    <Content Include="Views\Trend\Trend.cshtml" />
+    <Content Include="Views\Feed\Feed.cshtml" />
+    <Content Include="Views\NewNotable\Notable.cshtml" />
+    <Content Include="Views\Calender\Calender.cshtml" />
+    <Content Include="Views\Calender\Calendar_NewRealese.cshtml" />
+    <Content Include="Views\Event\Event.cshtml" />
+    <Content Include="Views\FavoriteSong\FavoriteSong.cshtml" />
+    <Content Include="Views\Artist\Artist.cshtml" />
+    <Content Include="Views\Album\createAlbum.cshtml" />
+    <Content Include="Views\Album\Album.cshtml" />
+    <Content Include="Views\Home\index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56514</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44354/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
