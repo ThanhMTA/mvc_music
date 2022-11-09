@@ -11,10 +11,10 @@ namespace mvc.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Main()
+         Model1 db = new Model1();
+            public ActionResult Main()
         {
-            Model1 db = new Model1();
-            List<SAN_PHAM> kq = db.SAN_PHAM.ToList();
+           List<SAN_PHAM> kq = db.SAN_PHAM.ToList();
             ViewBag.count = kq.Count;
             return View(kq);
            

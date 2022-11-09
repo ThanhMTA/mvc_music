@@ -669,6 +669,7 @@
     <Content Include="Views\Album\createAlbum.cshtml" />
     <Content Include="Views\Album\Album.cshtml" />
     <Content Include="Views\Home\index.cshtml" />
+    <Content Include="Views\Album\listSong.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

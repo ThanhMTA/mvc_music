@@ -8,28 +8,14 @@ namespace mvc.Models
 
     public partial class DS_SP
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DS_SP()
-        {
-            ALbums = new HashSet<ALbum>();
-            ALbums1 = new HashSet<ALbum>();
-        }
+        [Key]
+        [Column(Order = 0)]
+        [StringLength(10)]
+        public string MaAl { get; set; }
 
         [Key]
-        [StringLength(10)]
-        public string MaDS { get; set; }
-
+        [Column(Order = 1)]
         [StringLength(10)]
         public string MaSP { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ALbum> ALbums { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ALbum> ALbums1 { get; set; }
-
-        public virtual SAN_PHAM SAN_PHAM { get; set; }
-
-        public virtual SAN_PHAM SAN_PHAM1 { get; set; }
     }
 }

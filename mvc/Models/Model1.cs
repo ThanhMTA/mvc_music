@@ -8,13 +8,13 @@ namespace mvc.Models
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model2")
+            : base("name=Model14")
         {
         }
+        public virtual DbSet<DS_SP> DS_SP { get; set; }
 
         public virtual DbSet<ADMIN> ADMINs { get; set; }
         public virtual DbSet<ALbum> ALbums { get; set; }
-        public virtual DbSet<DS_SP> DS_SP { get; set; }
         public virtual DbSet<KHACH_HANG> KHACH_HANG { get; set; }
         public virtual DbSet<NGHE> NGHEs { get; set; }
         public virtual DbSet<NGHE_SI> NGHE_SI { get; set; }
@@ -28,6 +28,16 @@ namespace mvc.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<DS_SP>()
+              .Property(e => e.MaAl)
+              .IsFixedLength()
+              .IsUnicode(false);
+
+            modelBuilder.Entity<DS_SP>()
+                .Property(e => e.MaSP)
+                .IsFixedLength()
+                .IsUnicode(false);
             modelBuilder.Entity<ADMIN>()
                 .Property(e => e.UserName)
                 .IsUnicode(false);
@@ -59,30 +69,10 @@ namespace mvc.Models
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ALbum>()
-                .Property(e => e.MaDS)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DS_SP>()
-                .Property(e => e.MaDS)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DS_SP>()
-                .Property(e => e.MaSP)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DS_SP>()
-                .HasMany(e => e.ALbums)
-                .WithOptional(e => e.DS_SP)
-                .HasForeignKey(e => e.MaDS);
-
-            modelBuilder.Entity<DS_SP>()
-                .HasMany(e => e.ALbums1)
-                .WithOptional(e => e.DS_SP1)
-                .HasForeignKey(e => e.MaDS);
+            //modelBuilder.Entity<ALbum>()
+            //    .HasMany(e => e.SAN_PHAM)
+            //    .WithMany(e => e.ALbums)
+            //    .Map(m => m.ToTable("DS_SP").MapLeftKey("MaAl").MapRightKey("MaSP"));
 
             modelBuilder.Entity<KHACH_HANG>()
                 .Property(e => e.UserName)
@@ -108,61 +98,26 @@ namespace mvc.Models
             modelBuilder.Entity<KHACH_HANG>()
                 .HasMany(e => e.ALbums)
                 .WithRequired(e => e.KHACH_HANG)
-                .HasForeignKey(e => e.MaKH)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KHACH_HANG>()
-                .HasMany(e => e.ALbums1)
-                .WithRequired(e => e.KHACH_HANG1)
-                .HasForeignKey(e => e.MaKH)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KHACH_HANG>()
                 .HasMany(e => e.NGHEs)
                 .WithRequired(e => e.KHACH_HANG)
-                .HasForeignKey(e => e.MaKH)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KHACH_HANG>()
-                .HasMany(e => e.NGHEs1)
-                .WithRequired(e => e.KHACH_HANG1)
-                .HasForeignKey(e => e.MaKH)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KHACH_HANG>()
                 .HasMany(e => e.THEO_DOI)
                 .WithRequired(e => e.KHACH_HANG)
-                .HasForeignKey(e => e.MaKH)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KHACH_HANG>()
-                .HasMany(e => e.THEO_DOI1)
-                .WithRequired(e => e.KHACH_HANG1)
-                .HasForeignKey(e => e.MaKH)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KHACH_HANG>()
                 .HasMany(e => e.TRUY_CAP_TM)
                 .WithRequired(e => e.KHACH_HANG)
-                .HasForeignKey(e => e.makh)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KHACH_HANG>()
-                .HasMany(e => e.TRUY_CAP_TM1)
-                .WithRequired(e => e.KHACH_HANG1)
-                .HasForeignKey(e => e.makh)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KHACH_HANG>()
                 .HasMany(e => e.YEU_THICH)
                 .WithRequired(e => e.KHACH_HANG)
-                .HasForeignKey(e => e.makh)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KHACH_HANG>()
-                .HasMany(e => e.YEU_THICH1)
-                .WithRequired(e => e.KHACH_HANG1)
-                .HasForeignKey(e => e.makh)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NGHE>()
@@ -192,25 +147,11 @@ namespace mvc.Models
             modelBuilder.Entity<NGHE_SI>()
                 .HasMany(e => e.THEO_DOI)
                 .WithRequired(e => e.NGHE_SI)
-                .HasForeignKey(e => e.MaNS)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<NGHE_SI>()
-                .HasMany(e => e.THEO_DOI1)
-                .WithRequired(e => e.NGHE_SI1)
-                .HasForeignKey(e => e.MaNS)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NGHE_SI>()
                 .HasMany(e => e.TRINH_BAY)
                 .WithRequired(e => e.NGHE_SI)
-                .HasForeignKey(e => e.MaNS)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<NGHE_SI>()
-                .HasMany(e => e.TRINH_BAY1)
-                .WithRequired(e => e.NGHE_SI1)
-                .HasForeignKey(e => e.MaNS)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SAN_PHAM>()
@@ -227,49 +168,18 @@ namespace mvc.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<SAN_PHAM>()
-                .HasMany(e => e.DS_SP)
-                .WithOptional(e => e.SAN_PHAM)
-                .HasForeignKey(e => e.MaSP);
-
-            modelBuilder.Entity<SAN_PHAM>()
-                .HasMany(e => e.DS_SP1)
-                .WithOptional(e => e.SAN_PHAM1)
-                .HasForeignKey(e => e.MaSP);
-
-            modelBuilder.Entity<SAN_PHAM>()
                 .HasMany(e => e.NGHEs)
                 .WithRequired(e => e.SAN_PHAM)
-                .HasForeignKey(e => e.MaSP)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SAN_PHAM>()
-                .HasMany(e => e.NGHEs1)
-                .WithRequired(e => e.SAN_PHAM1)
-                .HasForeignKey(e => e.MaSP)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SAN_PHAM>()
                 .HasMany(e => e.TRINH_BAY)
                 .WithRequired(e => e.SAN_PHAM)
-                .HasForeignKey(e => e.MaSP)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SAN_PHAM>()
-                .HasMany(e => e.TRINH_BAY1)
-                .WithRequired(e => e.SAN_PHAM1)
-                .HasForeignKey(e => e.MaSP)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SAN_PHAM>()
                 .HasMany(e => e.YEU_THICH)
                 .WithRequired(e => e.SAN_PHAM)
-                .HasForeignKey(e => e.masp)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SAN_PHAM>()
-                .HasMany(e => e.YEU_THICH1)
-                .WithRequired(e => e.SAN_PHAM1)
-                .HasForeignKey(e => e.masp)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<THEO_DOI>()
@@ -290,13 +200,6 @@ namespace mvc.Models
             modelBuilder.Entity<TIN_MOI>()
                 .HasMany(e => e.TRUY_CAP_TM)
                 .WithRequired(e => e.TIN_MOI)
-                .HasForeignKey(e => e.maTM)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TIN_MOI>()
-                .HasMany(e => e.TRUY_CAP_TM1)
-                .WithRequired(e => e.TIN_MOI1)
-                .HasForeignKey(e => e.maTM)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TRINH_BAY>()

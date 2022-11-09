@@ -28,10 +28,6 @@ namespace mvc.Models
 
         public virtual KHACH_HANG KHACH_HANG { get; set; }
 
-        public virtual KHACH_HANG KHACH_HANG1 { get; set; }
-
         public virtual SAN_PHAM SAN_PHAM { get; set; }
-
-        public virtual SAN_PHAM SAN_PHAM1 { get; set; }
     }
 }

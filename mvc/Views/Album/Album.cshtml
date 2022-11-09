@@ -72,27 +72,28 @@
                 <div class="row">
                     <div class="col">
                         <div class="card">
+                          
                             <span class="want-play">
                                 <i class="fa-regular fa-circle-play "></i>
 
                             </span>
                             <img src="/Giới thiệu/Artist/charlie-01.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h3 class="card-title">@item[i].TenAlbum</h3>
+                                <a class="card-title" href="/Album/listSong?MaAl=@item[i].MaAl">@item[i].TenAlbum</a>
 
                             </div>
                             <div class="dropdown">
                                 @*@{
-                                    var name = item[i].TenAlbum;
-                                    var kh = item[i].MaKH;
+            var name = item[i].TenAlbum;
+            var kh = item[i].MaKH;
 
-                                        }*@
+                }*@
                                 <div class="dropdown">
 
-                                    <a class="want-alter  " onclick="hamDropdown()" >&#8230;</a>
+                                    <a class="want-alter  " onclick="hamDropdown()">&#8230;</a>
                                     <div class="content_dropdown">
                                         <a href="/Album/Delete?MaAlbum=@item[i].MaAl" class="want-delete dropdown-menu">Delete</a>
-                                        <a href="#" class="want-redouble">redouble</a>
+
 
                                     </div>
 
@@ -116,7 +117,7 @@
                                </span>
                                <img src="/Giới thiệu/Artist/charlie-01.png" class="card-img-top" alt="...">
                                <div class="card-body">
-                                   <h3 class="card-title">@item[i+1].TenAlbum</h3>
+                                   <a class="card-title" href="/Album/listSong?MaAl=@item[i+1].MaAl">@item[i+1].TenAlbum</a>
 
                                </div>
                                <div class="dropdown">
@@ -130,7 +131,7 @@
                                        <a class="want-alter  " onclick="hamDropdown()">&#8230;</a>
                                        <div class="content_dropdown">
                                            <a href="/Album/Delete?MaAlbum=@item[i+1].MaAl" class="want-delete dropdown-menu">Delete</a>
-                                           <a href="#" class="want-redouble">redouble</a>
+                                       
 
                                        </div>
 

@@ -11,14 +11,10 @@ namespace mvc.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SAN_PHAM()
         {
-            DS_SP = new HashSet<DS_SP>();
-            DS_SP1 = new HashSet<DS_SP>();
             NGHEs = new HashSet<NGHE>();
-            NGHEs1 = new HashSet<NGHE>();
             TRINH_BAY = new HashSet<TRINH_BAY>();
-            TRINH_BAY1 = new HashSet<TRINH_BAY>();
             YEU_THICH = new HashSet<YEU_THICH>();
-            YEU_THICH1 = new HashSet<YEU_THICH>();
+            ALbums = new HashSet<ALbum>();
         }
 
         [Required]
@@ -56,27 +52,15 @@ namespace mvc.Models
         public TimeSpan? ThoiGian { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DS_SP> DS_SP { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DS_SP> DS_SP1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NGHE> NGHEs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NGHE> NGHEs1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRINH_BAY> TRINH_BAY { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TRINH_BAY> TRINH_BAY1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YEU_THICH> YEU_THICH { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<YEU_THICH> YEU_THICH1 { get; set; }
+        public virtual ICollection<ALbum> ALbums { get; set; }
     }
 }

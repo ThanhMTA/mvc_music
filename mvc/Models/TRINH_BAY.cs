@@ -23,10 +23,6 @@ namespace mvc.Models
 
         public virtual NGHE_SI NGHE_SI { get; set; }
 
-        public virtual NGHE_SI NGHE_SI1 { get; set; }
-
         public virtual SAN_PHAM SAN_PHAM { get; set; }
-
-        public virtual SAN_PHAM SAN_PHAM1 { get; set; }
     }
 }

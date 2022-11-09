@@ -21,10 +21,10 @@ namespace mvc.Controllers
         }
         public ActionResult createAlbum()
         {
-            return View(new ALbum() );
+            return View(new ALbum());
         }
         [HttpPost]
-        public ActionResult createAlbum( ALbum model)
+        public ActionResult createAlbum(ALbum model)
         {
             Model1 db = new Model1();
             if (db.ALbums.Any(x => x.TenAlbum == model.TenAlbum))
@@ -39,15 +39,28 @@ namespace mvc.Controllers
                 Session["name"] = model.MaAl.ToString();
                 return RedirectToAction("Album", "Album");
             }
-            
+
         }
-        public ActionResult Delete( string MaAlbum)
+        public ActionResult Delete(string MaAlbum)
         {
             Model1 db = new Model1();
             var ab = db.ALbums.Find(MaAlbum);
             db.ALbums.Remove(ab);
             db.SaveChanges();
-            return RedirectToAction("Album","Album");
+            return RedirectToAction("Album", "Album");
+        }
+        public ActionResult listSong( string MaAl)
+        {
+            Model1 db = new Model1();
+            var a = db.ALbums.Find(MaAl);
+
+            ViewBag.name = a.TenAlbum.ToString();
+
+            var list = (from item in db.DS_SP
+                           where item.MaAl==MaAl
+                           select item).ToList();
+            return View (list);
+         
         }
     }
 }

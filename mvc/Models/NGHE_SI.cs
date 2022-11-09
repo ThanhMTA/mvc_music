@@ -12,9 +12,7 @@ namespace mvc.Models
         public NGHE_SI()
         {
             THEO_DOI = new HashSet<THEO_DOI>();
-            THEO_DOI1 = new HashSet<THEO_DOI>();
             TRINH_BAY = new HashSet<TRINH_BAY>();
-            TRINH_BAY1 = new HashSet<TRINH_BAY>();
         }
 
         [Required]
@@ -55,12 +53,6 @@ namespace mvc.Models
         public virtual ICollection<THEO_DOI> THEO_DOI { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THEO_DOI> THEO_DOI1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRINH_BAY> TRINH_BAY { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TRINH_BAY> TRINH_BAY1 { get; set; }
     }
 }

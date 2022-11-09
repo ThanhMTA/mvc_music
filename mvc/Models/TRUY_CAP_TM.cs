@@ -24,10 +24,6 @@ namespace mvc.Models
 
         public virtual KHACH_HANG KHACH_HANG { get; set; }
 
-        public virtual KHACH_HANG KHACH_HANG1 { get; set; }
-
         public virtual TIN_MOI TIN_MOI { get; set; }
-
-        public virtual TIN_MOI TIN_MOI1 { get; set; }
     }
 }

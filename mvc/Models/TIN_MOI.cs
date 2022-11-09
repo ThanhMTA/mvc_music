@@ -12,7 +12,6 @@ namespace mvc.Models
         public TIN_MOI()
         {
             TRUY_CAP_TM = new HashSet<TRUY_CAP_TM>();
-            TRUY_CAP_TM1 = new HashSet<TRUY_CAP_TM>();
         }
 
         [StringLength(200)]
@@ -37,8 +36,5 @@ namespace mvc.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRUY_CAP_TM> TRUY_CAP_TM { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TRUY_CAP_TM> TRUY_CAP_TM1 { get; set; }
     }
 }
