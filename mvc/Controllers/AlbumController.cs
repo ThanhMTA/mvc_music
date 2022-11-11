@@ -45,6 +45,14 @@ namespace mvc.Controllers
         public ActionResult Delete(string MaAlbum)
         {
             Model1 db = new Model1();
+            var ds = (from sp in db.DS_SP
+                      where sp.MaAl == MaAlbum
+                      select sp).ToList();
+            foreach(var i in ds)
+            {
+                db.DS_SP.Remove(i);
+                db.SaveChanges();
+            }
             var ab = db.ALbums.Find(MaAlbum);
             db.ALbums.Remove(ab);
             db.SaveChanges();
@@ -54,7 +62,7 @@ namespace mvc.Controllers
         {
             Session["MaAl"] = MaAl;
             Model1 db = new Model1();
-            var a = db.ALbums.Find(MaAl);
+            var a = db.ALbums.Find(Session["MaAl"]);
 
             ViewBag.name = a.TenAlbum.ToString();
 
@@ -93,8 +101,11 @@ namespace mvc.Controllers
         public ActionResult DeleteSong(string MaSP)
         {
             Model1 db = new Model1();
-            var ab = db.ALbums.Find();
-            db.ALbums.Remove(ab);
+            //var ab = (from ds in db.DS_SP
+            //          where ds.MaAl == Session["MaAl"] && ds.MaSP == MaSP
+            //          select ds).FirstOrDefault();
+            var sp = db.DS_SP.Find(Session["MaAl"],MaSP);
+            db.DS_SP.Remove(sp);
             db.SaveChanges();
             return RedirectToAction("Album", "Album");
         }
