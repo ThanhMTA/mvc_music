@@ -12,6 +12,7 @@ namespace mvc.Controllers
     public class AlbumController : Controller
     {
         // GET: Album
+       
         public ActionResult Album()
 
         {
@@ -49,18 +50,55 @@ namespace mvc.Controllers
             db.SaveChanges();
             return RedirectToAction("Album", "Album");
         }
-        public ActionResult listSong( string MaAl)
+        public ActionResult listSong(string MaAl)
         {
+            Session["MaAl"] = MaAl;
             Model1 db = new Model1();
             var a = db.ALbums.Find(MaAl);
 
             ViewBag.name = a.TenAlbum.ToString();
 
             var list = (from item in db.DS_SP
-                           where item.MaAl==MaAl
-                           select item).ToList();
-            return View (list);
+                        where item.MaAl == MaAl
+                        select item).ToList();
+            return View(list);
+        }
+        public ActionResult newSong()
+        {
+            Model1 db = new Model1();
+            List<SAN_PHAM> list = db.SAN_PHAM.ToList();
+            return View(list);             
          
         }
+        public ActionResult AddToAlbum(String MaSP)
+        {
+            Model1 db = new Model1();
+            DS_SP model = new DS_SP();
+            model.MaSP = MaSP;
+            model.MaAl = (string)Session["MaAL"];
+            if (db.DS_SP.Any(x => x.MaSP == model.MaSP))
+            {
+                ViewBag.thongbao = " this song is readly";
+                return RedirectToAction("newSong", "Album");
+
+            }
+            else
+            {
+               
+                db.DS_SP.Add(model);
+                db.SaveChanges();
+                return RedirectToAction("listSong", "Album");
+            }
+        }
+        public ActionResult DeleteSong(string MaSP)
+        {
+            Model1 db = new Model1();
+            var ab = db.ALbums.Find();
+            db.ALbums.Remove(ab);
+            db.SaveChanges();
+            return RedirectToAction("Album", "Album");
+        }
+
+
     }
 }

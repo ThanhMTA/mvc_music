@@ -1,14 +1,15 @@
-﻿@model IEnumerable<mvc.Models.DS_SP>
-
+﻿@model IEnumerable<mvc.Models.SAN_PHAM>
+    @using mvc.Models
 
 @{
-    ViewBag.Title = "listSong";
+    ViewBag.Title = "newSong";
     Layout = "~/Views/shared/_Layout.cshtml";
-   
+    Model1 db = new Model1();
+    var ds = from i in db.DS_SP
+             where i.MaAl == Session["MaAl"]
+             select i;
+
 }
-
-
-
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +35,9 @@
 -->
 <!--
     ====================MAIN_CONTENT=====================
+
 -->
+
 <div id="main-content">
     <header>
         <nav class="main-content__header-nav">
@@ -49,44 +52,44 @@
 
     <body>
         <div class="box-scroll">
-            <h1 class="contain pt-5 header-content"> @ViewBag.name </h1>
-            <a href="/Album/newSong?MaAl=@Session["MaAl"]"> create </a>
+            <h1 class="contain pt-5 header-content"> List SONG </h1>
+
+
             <div class="song-container">
-                @foreach (var item in Model)
+
+
+                @foreach (var sanPham in Model)
                 {
-                    mvc.Models.Model1 db = new mvc.Models.Model1();
-                    var listsp = (from sp in db.SAN_PHAM
-                                  where sp.MaSP == item.MaSP
-                                  select sp).ToList();
+                   
+                            
+                    <div class="row-song">
+                        <span class="want-play">
+                            <i class="fa-regular fa-circle-play "></i>
+                            <a class="add" href="/Album/AddToAlbum?MaSP=@sanPham.MaSP"> &#43</a>
 
-                    foreach (var sanPham in listsp)
-                    {
-                        <div class="row-song">
-                            <span class="want-play">
-                                <i class="fa-regular fa-circle-play "></i>
-                                <a >delete</a>
-                            </span>
-                            <div class="song-contents">
+                        </span>
+                        <div class="song-contents">
 
-                                <i class="fa-sharp fa-solid fa-music"></i>
-                                <img src="~/Giới thiệu/nền/8.jpg" />
-                                <div class="song-content-title">
-                                    <h3>@sanPham.TenSP</h3>
-                                    <p>Phan Mạnh Quỳnh</p>
-                                </div>
-                            </div>
-                       
-                            <div class="favourite-song">
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <p>03.30s</p>
+                            <i class="fa-sharp fa-solid fa-music"></i>
+                            <img src="~/Giới thiệu/nền/8.jpg" />
+                            <div class="song-content-title">
+                                <h3 value="MaSP">@sanPham.TenSP</h3>
+                               
+                                <p>Phan Mạnh Quỳnh</p>
                             </div>
                         </div>
 
-                    }
-
-
+                        <div class="favourite-song">
+                            <i class="fa-sharp fa-solid fa-heart"></i>
+                            <p>03.30s</p>
+                        </div>
+                    </div>
 
                 }
+
+
+
+
 
             </div>
 
@@ -100,27 +103,29 @@
 </div>>
 
 <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
+    var slideIndex = 1;
+    showDivs(slideIndex);
 
-        function plusDivs(n) {
-          showDivs(slideIndex += n);
-        }
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
 
-        function showDivs(n) {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          if (n > x.length) {slideIndex = 1}
-          if (n < 1) {slideIndex = x.length}
-          for (i = 0; i < x.length; i++) {
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
-          }
-          x[slideIndex-1].style.display = "block";
         }
+        x[slideIndex - 1].style.display = "block";
+    }
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="/Giao diện giới thiệu/javaScript/main.js"></script>
+
+
 
